@@ -35,6 +35,8 @@ The system uses a flexible 3-tier structure:
 ### 3. Usage & Access Control
 Permissions are enforced using a custom dependency `CheckAccess`.
 
+> **Note:** The `CheckAccess` dependency is located in the `common/` directory. This architectural choice allows the same authorization logic to be reused across multiple microservices as the system grows.
+
 **Example:**
 ```python
 @router.get("/orders", dependencies=[Depends(CheckAccess("orders", "read"))])
